@@ -7,7 +7,40 @@ import comidas.*
  */
  
 object pepita {
-	var energia
+	var energia = 0
 	method energia() { return energia }
 	method comer(cosa, gramos) { energia += cosa.energiaPorGramo() * gramos }
+	method viajar(ubica){energia += ubica.viaje(self)}
+}
+
+object patagonia{
+	method viaje(ave){return 30}
+	
+}
+object mardelplata{
+	var temporadaBaja = false
+	method viaje(ave){return if (temporadaBaja){80} else{-20}}
+	method alta(){temporadaBaja = false}
+	method baja(){temporadaBaja = true}
+}
+object sierracordobesa{
+	method viaje(ave){return 70}
+	
+}
+
+object noroeste{
+	method viaje(ave){
+		return 0.1 * ave.energia()
+	}
+	
+}
+/*object marDelPlata {
+ * }
+ * 
+ */
+ object pepe {
+	var energia = 0
+	method energia() { return energia }
+	method comer(cosa, gramos) { energia += cosa.energiaPorGramo() * gramos }
+	method viajar(ubica){energia += ubica.viaje(self)}
 }
